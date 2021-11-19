@@ -20,5 +20,7 @@ Is it possible to use the full chain complex to reduce the local parity-check ma
 
 ## Wie86's better approach
 
+Instead of reducing A to an (r, r) square invertible matrix, it is possible to add random elements to A and extend it to a (max(m,n), max(m,n)) square matrix. This matrix is invertible with high probability. A solution to the extended problem leads to a solution to the original problem.
+
 
 
