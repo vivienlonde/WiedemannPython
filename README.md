@@ -1,7 +1,7 @@
 # WiedemannPython
 GF(2) Wiedemann algorithm to solve a sparse linear system
 
-## Wie86 reduction to the invertible square case
+## Wie86's first reduction to the invertible square case
 
 ### Singular square case
 
@@ -18,6 +18,7 @@ Let's define m = nb_rows_A, n = nb_columns_A, r = rank_A.
 With this approach,  the algorithm is run (n-r) + (m-r) + 1 times. This is too much if we apply it to the full local parity-check matrix.
 Is it possible to use the full chain complex to reduce the local parity-check matrix upfront?
 
+## Wie86's better approach
 
 
 
