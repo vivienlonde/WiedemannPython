@@ -45,7 +45,7 @@ def Berlekamp_Massey(seq):
     B = [True]                 ### B is a copy of the last shortest-than-it-is-now value of C. This value must be stored because it is used to update C.
     L = 0                      ### L is len(C)-1
     m = 1                      ### m is the number of iteration since the length of C changed.
-                               ### m is also the index of the last value of seq that we now C generates correctly minus the the index of the last value of seq that B generates correctly.
+                               ### m is also the index of the last value of seq that we know C generates correctly minus the the index of the last value of seq that B generates correctly.
     # print('L:', L)
     # print('C:', C)
     # print('B:', B)
