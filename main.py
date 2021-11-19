@@ -41,7 +41,6 @@ def update(C, B, m):
                 
 def Berlekamp_Massey(seq):
     
-    # N = len(seq)
     C = [True]                 ### C is the returned list of linear feedbacks.
     B = [True]                 ### B is a copy of the last shortest-than-it-is-now value of C. This value must be stored because it is used to update C.
     L = 0                      ### L is len(C)-1
@@ -179,8 +178,7 @@ def main():
     ########### test solve_system
     y = solve_system(A, b)
     print(y)
-    
-    # print(bool(random.randint(0, 1)))
+
     
 if __name__ == '__main__':
     main()
