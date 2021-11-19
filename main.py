@@ -106,8 +106,8 @@ def solve_system(A, b):
     # nb_columns = len(b) # it is assumed for now that nb_rows == nb_columns
     
     bk = b.copy()
-    y = [False for _ in range(nb_rows)]
-    d = 0
+    y = [False for _ in range(nb_rows)]    ### y is the returned solution to the system.
+    d = 0                                  ### d is the degree of the current candidate annihilator polynomial.
     
     while not is_zero(bk):
         
@@ -118,7 +118,7 @@ def solve_system(A, b):
         C = Berlekamp_Massey(seq_scalars)
         # print('C:', C)
         
-        ## add C(A)b to y
+        ### add C(A)b to y
         # print('reversed(C[:-1])', list(reversed(C[:-1])))
         # print('seq_vectors[:len(C)-1]', seq_vectors[:len(C)-1])
         for c, s in zip(reversed(C[:-1]), seq_vectors[:len(C)-1]):
@@ -128,9 +128,10 @@ def solve_system(A, b):
         
         bk = sparse_matrix_by_dense_vector_multiplication(A, y)
         update(bk, b , 0) # bitwise XOR b to bk. (bk is modified in-place)
-        # print('bk:', bk)
+        ### bk is the difference between Ay and b.
+        # print('bk:', bk) 
         
-        d += len(C)-1
+        d += len(C)-1       ### annihilating polynomials are multiplied -> their degrees are added.
         # print('d:', d)
         
         # print()
