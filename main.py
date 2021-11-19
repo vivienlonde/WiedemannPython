@@ -44,7 +44,8 @@ def Berlekamp_Massey(seq):
     C = [True]                 ### C is the returned list of linear feedbacks.
     B = [True]                 ### B is a copy of the last shortest-than-it-is-now value of C. This value must be stored because it is used to update C.
     L = 0                      ### L is len(C)-1
-    m = 1                      ### m is the number of iteration sice the length of C changed.
+    m = 1                      ### m is the number of iteration since the length of C changed.
+                               ### m is also the index of the last value of seq that we now C generates correctly minus the the index of the last value of seq that B generates correctly.
     # print('L:', L)
     # print('C:', C)
     # print('B:', B)
@@ -59,7 +60,7 @@ def Berlekamp_Massey(seq):
         else:
             seq_slice = seq[n:n-L-1:-1]
         # print('seq_slice:', seq_slice)
-        d = dot_product(C, seq_slice) # OPTIMIZATION? : compute dot_product iteratively inside the loop. Caution: C is updated inside the loop.
+        d = dot_product(C, seq_slice)
         # print('d:', d)
         # print('L:', L)
         
